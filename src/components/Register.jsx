@@ -4,6 +4,7 @@ import Byte from "./Byte";
 const Registers = () => {
   return (
     <table>
+      <tbody>
       <tr>
         <td>
           Program Counter:
@@ -36,6 +37,7 @@ const Registers = () => {
           <Byte value={6} />
         </td>
       </tr>
+      </tbody>
     </table>
   );
 };

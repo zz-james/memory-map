@@ -8,25 +8,55 @@
   </head>
   <body>
     <style>
-      html *
-      {
-       font-family: 'Courier New', Courier, monospace
-      }
 
-      table,
-      td,
-      th {
-        border: 1px solid black;
-      }
-    
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 10px;
-      }
+html *
+{
+  font-family: 'Courier New', Courier, monospace
+}
 
-      /* input {width:8px; height:8px; margin-left: 0;} */
-      
+:root {
+  --drawSize: 550px;
+  --drawSizeClosed: 70px;
+}
+
+body {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.main {
+  flex-grow: 1;
+  height: calc(100vh - var(--drawSizeClosed));
+  background-color: bisque;
+}
+
+.open {
+  height: calc(100vh - var(--drawSize));
+}
+
+
+table,
+td,
+th {
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10px;
+}
+
+
+
+
+
     </style>
     <div id="app"></div>
   </body>

@@ -1,30 +1,21 @@
-import React, { useState } from "react";
-import Page from "./Page";
-import Registers from "./Register";
-import { MemoryContextProvider } from "../contexts/Memory";
+import React, {useState} from "react";
+import cx from "classnames";
+import Inspector from "./Inspector";
 
 const App = () => {
-  const [pageSelect, setPageSelect] = useState(0);
-  const size = 32768;
-  const pages = size / 256;
+  const [open, setOpen] = useState(false);
+
+  console.log(open);
 
   return (
-    <MemoryContextProvider size={size}>
-      registers:
-      <Registers />
-      <hr />
-      <div>
-        <input
-          type="range"
-          max={pages}
-          min={0}
-          value={pageSelect}
-          onChange={(e) => setPageSelect(e.target.value)}
-          step={1}
-        />
-        <Page page={pageSelect} />
+    <div className="container" >
+      <div className={cx("main", {"open": open})} >
+        <h1>here is the code</h1>
       </div>
-    </MemoryContextProvider>
+      <div className="bottomDrawer">
+        <Inspector open={open} toggleOpen={()=>setOpen(prevState => !prevState)} />
+      </div>
+    </div>
   );
 };
 
