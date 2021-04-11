@@ -5,8 +5,6 @@ import Inspector from "./Inspector";
 const App = () => {
   const [open, setOpen] = useState(false);
 
-  console.log(open);
-
   return (
     <div className="container" >
       <div className={cx("main", {"open": open})} >
