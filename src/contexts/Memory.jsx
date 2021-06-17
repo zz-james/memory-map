@@ -17,6 +17,19 @@ const MemoryContextProvider = ({ size, children }) => {
     pages[i] = new Uint8Array(buffer, i * 256);
   }
 
+  const DISC = true; // Set to TRUE to load the code above DFS and relocate
+  // down, so we can load the cassette version from disc
+
+  const PROT = false; // Set to TRUE to enable the tape protection code
+
+  const C = "0f40";
+  const hiBite = parseInt(C.substring(0, 2), 16);
+
+  const loBite = parseInt(C.substring(2, 4), 16);
+  console.log(hiBite, loBite);
+
+  pages[hiBite][loBite] = 128;
+
   return (
     <MemoryContext.Provider value={{ pages }}>
       {children}

@@ -10,19 +10,23 @@ const App = () => {
 
   return (
     <MemoryContextProvider size={size}>
-      registers:
-      <Registers />
-      <hr />
       <div>
-        <input
-          type="range"
-          max={pages}
-          min={0}
-          value={pageSelect}
-          onChange={(e) => setPageSelect(e.target.value)}
-          step={1}
-        />
-        <Page page={pageSelect} />
+        <div>
+          registers:
+          <Registers />
+          <hr />
+          <div>
+            <input
+              type="range"
+              max={pages}
+              min={0}
+              value={pageSelect}
+              onChange={(e) => setPageSelect(e.target.value)}
+              step={1}
+            />
+            <Page page={pageSelect} />
+          </div>
+        </div>
       </div>
     </MemoryContextProvider>
   );
