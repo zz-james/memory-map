@@ -5,8 +5,8 @@ import { MemoryContextProvider } from "../contexts/Memory";
 
 const App = () => {
   const [pageSelect, setPageSelect] = useState(0);
-  const size = 32768;
-  const pages = size / 256;
+  const size = 256 * 256; // 64k of addressable space
+  const pages = 255; //size / 256;
 
   return (
     <MemoryContextProvider size={size}>
