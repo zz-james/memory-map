@@ -110,6 +110,17 @@ function tokeniser() {
       } else {
         token.category = NAME;
       }
+    } else if (curchar === ".") {
+      console.log("this is some kind of directive?");
+      token.lexeme = DIRECTIVE;
+      while (true) {
+        token.lexeme += curchar;
+        curchar = getChar();
+        if (!(/^[a-z0-9]+$/i.test(curchar) || curchar === "_")) {
+          // if char is not a digit or an alpha or an underscore then exit
+          break;
+        }
+      }
     } else if (curchar in smallTokens) {
       token.category = smallTokens[curchar]; // get category
       token.lexeme = curchar;
