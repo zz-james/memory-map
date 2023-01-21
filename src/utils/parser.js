@@ -112,7 +112,7 @@ function tokeniser() {
       }
     } else if (curchar === ".") {
       console.log("this is some kind of directive?");
-      token.lexeme = DIRECTIVE;
+      token.category = DIRECTIVE;
       while (true) {
         token.lexeme += curchar;
         curchar = getChar();
